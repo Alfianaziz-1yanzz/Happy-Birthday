@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Birthday Surprise ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap');
+:root{--pink:#f7c9d9;--deep:#d85d91;--pale:#fff0f5;--ink:#79465e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#ffeaf2;color:var(--ink);font-family:Quicksand,sans-serif}
+button{font:inherit;cursor:pointer}
+.page{min-height:100svh;display:none;position:relative;overflow:hidden;padding:38px 18px 55px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#fff0f6,#f9d5e3)}
+.page.active{display:flex;animation:fade .7s ease}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.script{font-family:'Great Vibes',cursive;color:#a64f78;font-weight:400}
+h1{font-size:clamp(2.5rem,8vw,4.3rem);line-height:1.05;margin:8px 0 18px}
+h2{font-size:clamp(2rem,6vw,3.2rem);margin:0 0 18px}
+p{line-height:1.8}
+.small{font-size:.85rem}
+.decor{position:absolute;opacity:.45;font-size:28px;pointer-events:none;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-13px) rotate(8deg)}}
+.primary{border:0;border-radius:30px;padding:12px 24px;background:var(--deep);color:white;font-weight:700;box-shadow:0 6px 15px #d85d9140;transition:.2s}
+.primary:hover{transform:translateY(-3px);background:#c94e82}
+.secondary{border:1px solid #df8bab;background:#fff8fb;color:#a34e75;border-radius:25px;padding:10px 20px}
+.gift-wrap{display:grid;place-items:center;gap:12px}
+.gift{font-size:clamp(100px,25vw,160px);border:0;background:none;filter:drop-shadow(0 12px 8px #b75b7b35);animation:bob 2s infinite;transition:.3s}
+.gift:hover{transform:scale(1.08)}
+@keyframes bob{50%{translate:0 -10px}}
+.hint{font-weight:700;color:#b14e7a}
+.card{width:min(540px,100%);background:#fffafd;border:1px solid #f3c2d4;border-radius:25px;padding:25px;box-shadow:0 12px 35px #b85c7c20}
+.photo-heart{width:min(260px,70vw);aspect-ratio:1;object-fit:cover;border:9px solid white;outline:2px dashed #df8bab;border-radius:48% 48% 45% 45%;box-shadow:0 9px 25px #b85c7c30}
+.photo-placeholder{display:grid;place-items:center;background:linear-gradient(135deg,#f9d5e3,#fff1f6);color:#a65b7d;font-size:14px;text-align:center}
+.calendar{width:min(330px,90vw);margin:20px auto;background:#e96e9e;border-radius:20px;padding:18px;color:white;box-shadow:0 12px 25px #a94a7335}
+.month{font-family:'Great Vibes';font-size:2.4rem;margin:0 0 12px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.days span{padding:7px 0;font-size:.8rem;border-radius:50%}
+.days .marked{background:#fff;color:#d45288;font-weight:700;box-shadow:0 0 0 3px #ffdce9}
+.music{width:min(340px,100%);margin:20px auto;overflow:hidden;border-radius:12px}
+.music iframe{display:block;width:100%;height:152px;border:0}
+.letter{max-width:510px;margin:auto;background:#fff;border-radius:18px;padding:25px;text-align:left;box-shadow:0 10px 30px #b85c7c20;line-height:1.9}
+.envelope{font-size:90px;margin:12px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:min(440px,100%);margin:22px auto}
+.gallery img,.gallery .photo-placeholder{width:100%;aspect-ratio:3/4;object-fit:cover;border:6px solid white;box-shadow:0 5px 15px #b85c7c20;border-radius:12px}
+.closing-photo{width:170px;height:210px;object-fit:cover;border:8px solid white;border-radius:48% 48% 18px 18px;box-shadow:0 8px 25px #b85c7c30}
+.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.footer{position:absolute;bottom:12px;left:0;right:0;font-size:.75rem;color:#a96b86}
+@media(min-width:700px){.page{padding:55px 30px}.card{padding:35px}.gallery{grid-template-columns:repeat(2,150px)}}
+</style>
+</head>
+
+<body>
+<section class="page active" id="opening">
+ <span class="decor" style="top:12%;left:12%">♡</span><span class="decor" style="right:12%;bottom:18%">✿</span>
+ <div class="gift-wrap">
+  <p class="script" style="font-size:2rem;margin:0">A little surprise for you</p>
+  <h1 class="script">Happy Birthday<br>Pretty Girl</h1>
+  <button class="gift" onclick="go('intro')" aria-label="Buka hadiah">🎁</button>
+  <div class="hint">Tap to open ♡</div>
+ </div><div class="footer">made with love ♡</div>
+</section>
+
+<section class="page" id="intro">
+ <span class="decor" style="top:10%;left:8%">🌷</span>
+ <div class="card">
+  <p class="script" style="font-size:2.6rem">Pretty Girl</p>
+  <img class="photo-heart" src="image/foto 1.jpeg" alt="Foto ulang tahun" onerror="this.classList.add('photo-placeholder');this.src='';this.alt='Ganti dengan foto-utama.jpg'">
+  <p>Untuk seseorang yang spesial hari ini ♡</p>
+  <button class="primary" onclick="go('calendar')">Continue ♡</button>
+ </div>
+</section>
+
+<section class="page" id="calendar">
+ <div class="card">
+  <p class="small">Today is all about you</p><h2 class="script">Your Special Day</h2>
+  <div class="calendar">
+   <div class="month" id="monthName">November</div>
+   <div class="days" id="calendarDays"></div>
+  </div>
+  <p>Semoga hari ini dipenuhi banyak kebahagiaan!</p>
+  <div class="music">
+   <iframe title="Seasons — wave to earth di Spotify" src="https://open.spotify.com/embed/track/0aVd7QiY8BstysHb62c5Fi?utm_source=generator&amp;theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+  <button class="primary" onclick="go('letter')">Next ♡</button>
+ </div>
+</section>
+
+<section class="page" id="letter">
+ <div>
+  <p class="script" style="font-size:3rem">Letter for you</p>
+  <div class="envelope">💌</div>
+  <article class="letter">
+   <b>Happy Birthday, beautiful girl!</b>
+   <p>Di hari spesialmu ini, aku berharap semua hal baik selalu datang menghampirimu. Semoga kamu selalu diberi kesehatan, kebahagiaan, dan kekuatan untuk meraih semua impianmu.</p>
+   <p>Terima kasih sudah menjadi dirimu sendiri. Jangan lupa untuk selalu tersenyum dan menikmati setiap proses dalam hidup. Kamu pantas mendapatkan banyak hal indah.</p>
+   <p>Once again, happy birthday! Semoga hari ini menjadi salah satu kenangan terbaikmu. ♡</p>
+   <p style="text-align:right">With love,<br><b>Your special someone ♡</b></p>
+  </article>
+  <button class="primary" style="margin-top:20px" onclick="go('gallery')">See your memories</button>
+ </div>
+</section>
+
+<section class="page" id="gallery">
+ <div class="card">
+  <p class="script" style="font-size:3rem">Just for you</p>
+  <h2>Our Little Gallery ♡</h2>
+  <div class="gallery">
+   <img src="image/foto 1.jpeg" alt="Kenangan 1" onerror="placeholder(this,'Foto 1')">
+   <img src="image/foto 2.jpeg" alt="Kenangan 2" onerror="placeholder(this,'Foto 2')">
+   <img src="image/foto 3.jpeg" alt="Kenangan 3" onerror="placeholder(this,'Foto 3')">
+   <img src="image/foto 4.jpeg" alt="Kenangan 4" onerror="placeholder(this,'Foto 4')">
+  </div>
+  <p>Little moments, lovely memories. ♡</p>
+  <button class="primary" onclick="go('closing')">One last thing...</button>
+ </div>
+</section>
+
+<section class="page" id="closing">
+ <span class="decor" style="top:9%;left:10%">🌸</span><span class="decor" style="right:10%;bottom:15%">♡</span>
+ <div class="card">
+  <p class="script" style="font-size:3rem">Closing</p>
+  <img class="closing-photo" src="foto-utama.jpg" alt="Foto spesial" onerror="this.classList.add('photo-placeholder');this.src='';this.alt='Tambahkan foto utama'">
+  <h2 class="script">Happy Birthday!</h2>
+  <p>May your days be filled with laughter, love, and beautiful surprises. Keep shining and being the wonderful person you are.</p>
+  <p class="script" style="font-size:2rem">You deserve all the happiness ♡</p>
+  <button class="secondary" onclick="go('opening')">↻ Replay</button>
+ </div>
+</section>
+
+<script>
+const pages=['opening','intro','calendar','letter','gallery','closing'];
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+function placeholder(img,label){const box=document.createElement('div');box.className='photo-placeholder';box.textContent='Tambahkan '+label;img.replaceWith(box);}
+function buildCalendar(){
+ const monthName=document.getElementById('monthName'),days=document.getElementById('calendarDays');
+ // Ubah bulan dan tanggal sesuai ulang tahun.
+ const year=2026,month=10,birthday=19; // month: 0=Januari, 10=November
+ const names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ monthName.textContent=names[month]+' '+year;
+ const first=new Date(year,month,1).getDay(),count=new Date(year,month+1,0).getDate();
+ ['S','M','T','W','T','F','S'].forEach(x=>{const s=document.createElement('span');s.textContent=x;days.appendChild(s)});
+ for(let i=0;i<first;i++)days.appendChild(document.createElement('span'));
+ for(let n=1;n<=count;n++){const s=document.createElement('span');s.textContent=n;if(n===birthday)s.className='marked';days.appendChild(s)}
+}
+buildCalendar();
+</script>
+
+</body>
+
+</html>
